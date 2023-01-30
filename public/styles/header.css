@@ -1,0 +1,15 @@
+body > header {
+  margin-top: 120px;
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #c3a50e;
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread.png");
+}
+
+header > div > h2 {
+  margin-top: 0px;
+}
