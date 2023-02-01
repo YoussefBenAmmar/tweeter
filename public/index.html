@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweetContent.css" type="text/css" />
 
 
 
@@ -26,6 +27,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
   </head>
 
@@ -57,18 +59,39 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-          <div>
-            <form class="tweetText" action="/tweets" method="POST">
+        <form  action="/tweets" method="POST">
+          <div class="tweetText" >
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
+          <!-- <input name="inputbox" id="inputboxid"> </input> -->
          </div>
           <div class="tweetButton">
-            <button type="submit">Tweet</button>
+            <button type="submit" id="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
+      <section id="tweet-container">
+        <!-- <article>
+          <header>
+            <div class="pseudo">
+            <img class="img" src="/images/profile-hex.png"> 
+            Javier Zannetti
+            </div>
+            <div class="handle">@CapitanoZanetti</div>
+          </header>
+          <div class="tweetContent"> We won the treble in 2010, it wasn't that long ago.  </div>
+          <footer> 
+            <div class ="date"> 2 days ago </div>
+            <div class ="reactions">
+              <i class="fa-solid fa-flag"></i>
+              <i class="fa-solid fa-retweet"></i>
+              <i class="fa-solid fa-heart"></i> </div>
+          </footer>
+        </article> -->
+      </section>
     </main>
+    
     
   </body>
 </html>

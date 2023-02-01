@@ -24,7 +24,7 @@ article > header {
   height: 3em;
 }
 
-header > div >img {
+.img {
     height: 40px;
 }
 
