@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('hi')
 
   $('#tweet-text').on("input", function(e) {
     let x = $(this).val().length;
@@ -14,8 +13,9 @@ $(document).ready(function() {
 
   });
 
+
   // $('#submit').on("click", e =>{
-  //   const txt = $('#tweet-text').val();
-  //   console.log(txt)
+  //   alert( "Handler for .submit() called." );
+  //   e.preventDefault();
   // })
 });
