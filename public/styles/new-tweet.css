@@ -45,3 +45,14 @@
   height: 3rem;
   width: 6rem;
  }
+
+.new-tweet .errorMsg{
+  display: flex;
+  align-content: flex-end;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+  background-color: #ca0f0f;
+  border: 1px solid #e2d9d9;
+  color: #ffffff;
+  padding: 20px 30px;
+ }

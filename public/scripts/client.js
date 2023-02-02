@@ -4,80 +4,85 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 $(document).ready(function() {
-   const data = [ ]
 
+  const data = [];
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
-
-const createTweetElement = function (data) {
-
-
-const tweetHTML =
-  `<article class="tweet">
+  const createTweetElement = function(data) {
+    const tweetHTML = `<article class="tweet">
   <header>
     <div class="user">
-    <img src="${data.user.avatars}"> 
-    "${data.user.name}"
+    <img src="${escape(data.user.avatars)}"> 
+    "${escape(data.user.name)}"
     </div>
-    <div>"${data.user.handle}"</div>
+    <div>"${escape(data.user.handle)}"</div>
   </header>
-  <div>"${data.content.text}"</div>
+  <div>"${escape(data.content.text)}"</div>
   <footer> 
-    <div>"${timeago.format(data.created_at, 'en_US')}"</div>
+    <div>"${escape(timeago.format(data.created_at, "en_US"))}"</div>
     <div>
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
       <i class="fa-solid fa-heart"></i> </div>
   </footer>
-</article>`
+</article>`;
+
+    $(`#tweet-container`).prepend(tweetHTML);
+  };
+
+  const renderTweets = function(data) {
+    $("#tweets-container").empty();
+    for (let tweet of data) {
+      $("#tweets-container").prepend(createTweetElement(tweet));
+    }
+
+    $("form").on("submit", (e) => {
+      e.preventDefault();
+
+      const text = 140 - $('.counter').val();
 
 
-$(`#tweet-container`).append(tweetHTML)
+      if (text > 140) {
+        $('.errorMsg').text("Too Long.").slideDown();
+        return;
+      } else if (text === 0) {
+        $('.errorMsg').text("Too Short.").slideDown();
+        return;
+      } else {
+      $('.errorMsg').slideUp(400).text("");
 
-};
+        $.ajax("tweets", {
+          method: "POST",
+          data: $("form").serialize(),
+        });
 
+        loadTweets();
+        console.log("tweet sent");
+        console.log($("form").serialize());
+      }
 
+      $('textarea').val('');
 
-const renderTweets = function(data) {
-
-
-  $('#tweets-container').empty();
-  for (let tweet of data) {
-    $('#tweets-container').prepend(createTweetElement(tweet));
-    
-  }
-
-  $("form").on("submit", (e) => {
-    console.log("tweet sent");
-    e.preventDefault();
-    console.log( $( "form" ).serialize());
-
-    $.ajax( 'tweets', {
-      method: 'POST',
-      data:$("form").serialize()
-    })
-  });
+      $('.counter').text(140);
 
 
+    });
 
-};
+  };
 
-const loadTweets = function(data){
+  const loadTweets = function(data) {
 
-  $.get('/tweets',  function(data) {
-    $('#tweets-container').empty();
-    renderTweets(data);
-  })
+    $.get("/tweets", function(data) {
+      $("#tweets-container").empty();
+      renderTweets(data);
+    });
+  };
 
-}
-
-loadTweets(data);
-
+  loadTweets(data);
 });
-
-
-
-
-
