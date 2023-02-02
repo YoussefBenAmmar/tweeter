@@ -30,7 +30,7 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-body > main {
+body>main {
   display: flex;
   flex-direction: column;
   margin-left: 5%;
@@ -38,4 +38,50 @@ body > main {
   justify-content: center;
   align-items: stretch;
   background-color: #f4f1ec;
- }
+}
+
+
+
+
+@media screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+  }
+  body > header {
+    width: 30%;
+    margin-top: 200px !important;
+    margin-left: 3rem;
+    margin-right: 0px;
+    margin-bottom: 5rem;
+
+ 
+  }
+  body > main {
+    width: 50%;
+    float: right;
+    margin: 200px 3rem 0px 0px;
+  }
+
+}
+
+@media screen and (min-width: 570px) and (max-width: 1024px) {
+  
+  body > nav {
+    background-color: #c3a50e;
+    background-image: url("https://www.transparenttextures.com/patterns/black-thread.png");
+
+  }
+}
+
+@media screen and(max-width: 570px) {
+  body > nav {
+    background-color: #c3a50e;
+    background-image: url("https://www.transparenttextures.com/patterns/black-thread.png") ;
+  }
+
+
+}

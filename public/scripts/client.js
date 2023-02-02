@@ -47,15 +47,17 @@ $(document).ready(function() {
 
       const text = 140 - $('.counter').val();
 
+   $('.errorMsg').slideUp()
 
       if (text > 140) {
-        $('.errorMsg').text("Too Long.").slideDown();
+        $('.errorMsg').text("Too Long. You need to relax, cut it down to the essential. Attention span is too short for your monologue.").slideDown();
         return;
       } else if (text === 0) {
-        $('.errorMsg').text("Too Short.").slideDown();
+        $('.errorMsg').text("Too Short. I am sure you got something to say. Don't be shy.").slideDown();
         return;
       } else {
-      $('.errorMsg').slideUp(400).text("");
+        $('.errorMsg').slideUp().text("");
+
 
         $.ajax("tweets", {
           method: "POST",
@@ -86,3 +88,5 @@ $(document).ready(function() {
 
   loadTweets(data);
 });
+
+
