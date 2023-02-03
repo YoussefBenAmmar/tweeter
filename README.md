@@ -16,3 +16,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+
+## Screenshots
+
+!["Screenshot of Tweeter page happy path"](https://github.com/YoussefBenAmmar/tweeter/blob/master/docs/tweeter.png?raw=true)
+!["Screenshot of Tweeter mobile happy path"](https://github.com/YoussefBenAmmar/tweeter/blob/master/docs/Tweeter-mobile.png?raw=true)
+!["Screenshot of Tweeter with a message way too long"](https://github.com/YoussefBenAmmar/tweeter/blob/master/docs/Tweeter-error.png?raw=true)
