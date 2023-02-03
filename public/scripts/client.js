@@ -36,18 +36,16 @@ $(document).ready(function() {
     $(`#tweet-container`).prepend(tweetHTML);
   };
 
-  const renderTweets = function(data) {
-    $("#tweets-container").empty();
-    for (let tweet of data) {
-      $("#tweets-container").prepend(createTweetElement(tweet));
-    }
 
-    $("form").on("submit", (e) => {
+  $("form").on("submit", (e) => {
       e.preventDefault();
 
       const text = 140 - $('.counter').val();
 
-   $('.errorMsg').slideUp()
+  //  $('.errorMsg').slideUp()
+
+  console.log("this is our text console.log", text);
+  console.log($('.counter').val());
 
       if (text > 140) {
         $('.errorMsg').text("Too Long. You need to relax, cut it down to the essential. Attention span is too short for your monologue.").slideDown();
@@ -68,15 +66,50 @@ $(document).ready(function() {
         console.log("tweet sent");
         console.log($("form").serialize());
       }
+    });
+
+  const renderTweets = function(data) {
+    $("#tweets-container").empty();
+    for (let tweet of data) {
+      $("#tweets-container").prepend(createTweetElement(tweet));
+    }
+
+
+  //   $("form").on("submit", (e) => {
+  //     e.preventDefault();
+
+  //     const text = 140 - $('.counter').val();
+
+  // //  $('.errorMsg').slideUp()
+
+  // console.log("this is our text console.log", text);
+  // console.log($('.counter').val());
+
+  //     if (text > 140) {
+  //       $('.errorMsg').text("Too Long. You need to relax, cut it down to the essential. Attention span is too short for your monologue.").slideDown();
+  //       return;
+  //     } else if (text === 0) {
+  //       $('.errorMsg').text("Too Short. I am sure you got something to say. Don't be shy.").slideDown();
+  //       return;
+  //     } else {
+  //       $('.errorMsg').slideUp().text("");
+
+
+  //       $.ajax("tweets", {
+  //         method: "POST",
+  //         data: $("form").serialize(),
+  //       });
+
+  //       loadTweets();
+  //       console.log("tweet sent");
+  //       console.log($("form").serialize());
+  //     }
 
       $('textarea').val('');
 
       $('.counter').text(140);
+    }
 
-
-    });
-
-  };
 
   const loadTweets = function(data) {
 
